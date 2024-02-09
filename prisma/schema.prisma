@@ -29,3 +29,4 @@ model PollOptions {
   poll    Polls  @relation(fields: [pollsId], references: [id])
   pollsId String
 }
+
