@@ -1,0 +1,32 @@
+{
+  "name": "pick-me",
+  "version": "1.0.0",
+  "description": "**Overview**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/upALX/PickMe.git"
+  },
+  "author": "José Alexandre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/upALX/PickMe/issues"
+  },
+  "homepage": "https://github.com/upALX/PickMe#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "prisma": "^5.9.1",
+    "tsc": "^2.0.4",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.9.1",
+    "fastify": "^4.26.0",
+    "zod": "^3.22.4"
+  }
+}
