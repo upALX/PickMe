@@ -10,10 +10,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Poll {
-  id        String   @id @default(uuid())
-  poll_key  String   @default(uuid())
-  title     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+model Polls {
+  id          String        @id @default(uuid())
+  poll_key    String        @default(uuid())
+  title       String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @default(now())
+  options PollOptions[]
+}
+
+model PollOptions {
+  id         String   @id @default(uuid())
+  option_key String   @default(uuid())
+  title      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now())
+
+  poll    Polls  @relation(fields: [pollsId], references: [id])
+  pollsId String
 }
