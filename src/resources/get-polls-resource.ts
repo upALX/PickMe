@@ -14,13 +14,13 @@ export async function getPollByID(app: FastifyInstance){
 
         const poll = await prisma.polls.findFirst({
             where: {
-                poll_key : pollId,
+                id : pollId,
             },
             include: {
                 options: {
                     select: {
                         title: true,
-                        option_key: true,
+                        id: true,
                     }
                 }
             }

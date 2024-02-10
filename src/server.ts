@@ -7,6 +7,7 @@ import fastifyCookie from '@fastify/cookie';
 
 const app = fastify()
 
+
 app.register(fastifyCookie, {
     secret: "4536b8e7-61a3-4e30-84d3-94b0ab56487e",
     hook: "onRequest",
