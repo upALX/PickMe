@@ -3,6 +3,7 @@ import {randomUUID} from "node:crypto"
 import { FastifyInstance } from "fastify"
 import {z} from "zod"
 import { redis } from "../database/redis"
+import { votePubsub } from "../utils/votes-pub-sub"
 
 
 export async function votePoll(app: FastifyInstance){
@@ -65,6 +66,11 @@ export async function votePoll(app: FastifyInstance){
         })
 
         await redis.zincrby(pollsId, 1, pollOptionKey) // a KEY, an increment, an member (value to compute)
+
+        votePubsub.publish(pollsId, {
+            pollOptionId: pollOptionKey,
+            votesAmount: 1,
+        })
 
         return reply.status(201).send()
     
