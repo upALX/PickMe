@@ -14,7 +14,6 @@ It is a web app that takes polls in real time
 
 ![Node](https://img.shields.io/badge/-Node-05122A?style=flat&logo=node.js)&nbsp;
 ![Typescript](https://img.shields.io/badge/-Typescript-05122A?style=flat&logo=typescript)&nbsp;
-![socketdotio](https://img.shields.io/badge/-Socketdotio-05122A?style=flat&logo=socketdotio)&nbsp;
 ![fastify](https://img.shields.io/badge/-Fastify-05122A?style=flat&logo=fastify)&nbsp;
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-05122A?style=flat&logo=postgresql)&nbsp;
 ![Prisma](https://img.shields.io/badge/-Prisma-05122A?style=flat&logo=prisma)&nbsp;
@@ -32,9 +31,15 @@ It is a web app that takes polls in real time
 git clone git@github.com:upALX/PickMe.git
 ```
 
-** ** 
+**2 - Install all dependencies:**
+``
+npm i
+``
 
-
+**3 - Run the app:**
+``
+npm run dev
+``
 
 ## Make your mark :triangular_flag_on_post:   
 

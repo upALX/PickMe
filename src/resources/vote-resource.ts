@@ -39,7 +39,12 @@ export async function votePoll(app: FastifyInstance){
                 })
 
 
-                await redis.zincrby(pollsId, -1, hasPreviewVote.pollOptionsId)
+                const vote = await redis.zincrby(pollsId, -1, hasPreviewVote.pollOptionsId)
+
+                votePubsub.publish(pollsId, {
+                    pollOptionId: hasPreviewVote.pollOptionsId,
+                    votesAmount: Number(vote),
+                })
 
             }else if(hasPreviewVote){
                 return reply.status(400).send({message: "You already voted on this poll!"})
@@ -65,11 +70,11 @@ export async function votePoll(app: FastifyInstance){
             }
         })
 
-        await redis.zincrby(pollsId, 1, pollOptionKey) // a KEY, an increment, an member (value to compute)
+        const votesAmount  = await redis.zincrby(pollsId, 1, pollOptionKey) // a KEY, an increment, an member (value to compute)
 
         votePubsub.publish(pollsId, {
             pollOptionId: pollOptionKey,
-            votesAmount: 1,
+            votesAmount: Number(votesAmount),
         })
 
         return reply.status(201).send()
