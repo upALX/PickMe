@@ -36,6 +36,10 @@ export async function votePoll(app: FastifyInstance){
                         id: hasPreviewVote.id
                     }
                 })
+
+
+                await redis.zincrby(pollsId, -1, hasPreviewVote.pollOptionsId)
+
             }else if(hasPreviewVote){
                 return reply.status(400).send({message: "You already voted on this poll!"})
 
