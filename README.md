@@ -2,11 +2,11 @@
 
 **Overview**
 
-It is a web app that takes polls in real time
+It is a web app that takes polls in real time.
 
-🛠️*This project is under development*🛠️
+![giphy](https://github.com/upALX/All-Assets/blob/main/on-mvp.webp)
 
-![giphy](https://github.com/upALX/All-Assets/blob/main/construction-little-girl.webp)
+🛠️*This project is on MVP*🛠️
 
 ---
 
@@ -32,14 +32,14 @@ git clone git@github.com:upALX/PickMe.git
 ```
 
 **2 - Install all dependencies:**
-``
+```
 npm i
-``
+```
 
 **3 - Run the app:**
-``
+```
 npm run dev
-``
+```
 
 ## Make your mark :triangular_flag_on_post:   
 
