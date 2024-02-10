@@ -22,10 +22,10 @@ model PollOptions {
   title     String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  pollsId   String
 
-  polls   Polls  @relation(fields: [pollsId], references: [id])
-  pollsId String
-  votes   Vote[]
+  polls Polls  @relation(fields: [pollsId], references: [id])
+  votes Vote[]
 }
 
 model Vote {

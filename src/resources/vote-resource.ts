@@ -2,6 +2,7 @@ import { prisma } from "../database/prisma"
 import {randomUUID} from "node:crypto"
 import { FastifyInstance } from "fastify"
 import {z} from "zod"
+import { redis } from "../database/redis"
 
 
 export async function votePoll(app: FastifyInstance){
@@ -58,6 +59,8 @@ export async function votePoll(app: FastifyInstance){
                 pollOptionsId: pollOptionKey,
             }
         })
+
+        await redis.zincrby(pollsId, 1, pollOptionKey) // a KEY, an increment, an member (value to compute)
 
         return reply.status(201).send()
     
